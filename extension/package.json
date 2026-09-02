@@ -1,0 +1,29 @@
+{
+  "name": "js-dsa-extension",
+  "version": "0.1.0",
+  "description": "JavaScript DSA toolkit browser extension",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "keywords": [
+    "javascript",
+    "dsa",
+    "chrome-extension"
+  ],
+  "author": "Jayadeep",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "lucide-react": "^1.39.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.7.1",
+    "@vitejs/plugin-react": "^6.1.1",
+    "vite": "^8.2.2"
+  }
+}

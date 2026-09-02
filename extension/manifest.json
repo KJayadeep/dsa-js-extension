@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "JS DSA",
+  "version": "0.1.0",
+  "description": "A JavaScript DSA toolkit for coding platforms.",
+
+  "permissions": [
+    "storage"
+  ],
+
+  "host_permissions": [
+    "https://leetcode.com/*"
+  ],
+
+  "background": {
+    "service_worker": "src/background/background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://leetcode.com/problems/*"
+      ],
+      "js": [
+        "src/content/main.jsx"
+      ]
+    }
+  ],
+
+  "action": {
+    "default_title": "JS DSA"
+  }
+}
