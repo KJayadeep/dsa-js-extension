@@ -24,6 +24,16 @@
       "js": [
         "src/content/main.jsx"
       ]
+    },
+    {
+      "matches": [
+        "https://leetcode.com/problems/*"
+      ],
+      "js": [
+        "src/content/pageBridge.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_idle"
     }
   ],
 

@@ -1,16 +1,41 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
-import "./index.css";
+import styleText from "./index.css?inline";
 
-const container = document.createElement("div");
+function initApp() {
+  if (document.getElementById("js-dsa-root")) {
+    return;
+  }
 
-container.id = "js-dsa-root";
+  const host = document.createElement("div");
+  host.id = "js-dsa-root";
+  host.style.position = "static";
+  host.style.zIndex = "2147483647";
+  document.body.appendChild(host);
 
-document.body.appendChild(container);
+  // Attach Shadow DOM for complete CSS encapsulation from LeetCode
+  const shadowRoot = host.attachShadow({ mode: "open" });
 
-createRoot(container).render(
+  // Injected CSS inside shadow root
+  const styleElement = document.createElement("style");
+  styleElement.textContent = styleText;
+  shadowRoot.appendChild(styleElement);
+
+  // React mount point
+  const container = document.createElement("div");
+  container.id = "js-dsa-app";
+  shadowRoot.appendChild(container);
+
+  createRoot(container).render(
     <React.StrictMode>
-        <App />
+      <App />
     </React.StrictMode>
-);
+  );
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initApp);
+} else {
+  initApp();
+}
