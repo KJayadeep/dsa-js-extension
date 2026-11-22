@@ -4,7 +4,8 @@
   "description": "JavaScript DSA toolkit browser extension",
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "package": "vite build && cd dist && zip -r ../js-dsa-extension.zip . -x '*.DS_Store*' && cd .."
   },
   "keywords": [
     "javascript",
